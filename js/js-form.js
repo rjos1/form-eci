@@ -19,17 +19,26 @@ document.addEventListener("DOMContentLoaded", function() {
     btnSubmit.addEventListener("click", submit);
     //Select 2
     $(document).ready(function() {
-        $('#carrera').select2({
-            placeholder: "Seleccione al menos una carrera de interés",
+        $('#campus').select2({
+            placeholder: "Seleccione su campus o sede de estudio",
             allowClear: true,
             width:"100%",
             // closeOnSelect: false,
-            dropdownParent: $("#carrera-container"),
+            dropdownParent: $("#campus-container"),
+            theme: 'bootstrap-5'
+        });
+        
+        $('#jornada').select2({
+            placeholder: "Seleccione su jornada estudio",
+            allowClear: true,
+            width:"100%",
+            // closeOnSelect: false,
+            dropdownParent: $("#jornada-container"),
             theme: 'bootstrap-5'
         });
 
         $('#modalidad').select2({
-            placeholder: "Seleccione al menos una modalidad",
+            placeholder: "Seleccione su modalidad de estudio",
             allowClear: true,
             width:"100%",
             // closeOnSelect: false,
@@ -43,17 +52,11 @@ function submit(){
     
     let nombre = document.getElementById("nombre").value;
     let correo = document.getElementById("correo").value;
-    let telf = document.getElementById("telf").value;
-   
-    let carreras = document.getElementById("carrera");
-    let careerOps = carreras.selectedOptions || [].filter.call(selectedElement.options, option => option.selected);
-    let careerValues = [].map.call(careerOps, option => option.value);
-    let careerStr = careerValues.join(';');
-
-    let modalidades = document.getElementById("modalidad");
-    let modalityOps = modalidades.selectedOptions || [].filter.call(selectedElement.options, option => option.selected);
-    let modalityValues = [].map.call(modalityOps, option => option.value);
-    let modaityStr = modalityValues.join(';');
+    let cel = document.getElementById("cel").value;
+    let campus = document.getElementById("campus").value;
+    let jornada = document.getElementById("jornada").value;
+    let modalidad = document.getElementById("modalidad").value;
+    
 
     //validaciones
     if(nombre=="" || nombre==null || nombre.length==0){
@@ -70,23 +73,30 @@ function submit(){
         return false;
     }
 
-    /*if(telf=="" || telf==null || telf.length<8){
+    if(cel=="" || cel==null || cel.length<8){
         checkFailed.fire({
-            html: "Debe ingresar un número de teléfono válido"
-        })
-        return false;
-    }*/
-
-    if(carreras.selectedOptions.length<1){
-        checkFailed.fire({
-            html:"Debe seleccionar al menos una carrera de interés"
+            html: "Debe ingresar un número de celular válido"
         })
         return false;
     }
 
-    if(modalidades.selectedOptions.length<1){
+    if(campus.length==null || campus.length==0 || campus==""){
         checkFailed.fire({
-            html:"Debe seleccionar al menos una modalidad"
+            html: "Debe seleccionar un campus"
+        })
+        return false;
+    }
+
+    if(jornada.length==null || jornada.length==0 || jornada==""){
+        checkFailed.fire({
+            html: "Debe seleccionar una jornada"
+        })
+        return false;
+    }
+
+    if(modalidad.length==null || modalidad.length==0 || modalidad==""){
+        checkFailed.fire({
+            html: "Debe seleccionar una modalidad"
         })
         return false;
     }
@@ -94,9 +104,11 @@ function submit(){
     let form = new FormData();
     form.append("nombre", nombre);
     form.append("mail", correo);
-    form.append("telf", telf);
-    form.append("career", careerStr);
-    form.append("modalidad", modaityStr);
+    form.append("cel", cel);
+    form.append("campus", campus);
+    form.append("jornada", jornada);
+    form.append("modalidad", modalidad);
+
 
     $.ajax({
         url: 'php/verifyRequest.php',

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es">
 <head>
-    <title>Registro de datos - Visitas guiadas in3</title>
+    <title>Registro de datos - ECI</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -26,14 +26,14 @@
                 <img src="img/umg.png" alt="Logo UMG" class="logo">
             </a>
             <div class="form-title col-12 col-sm-11 ps-2">
-                <h1>Facultad de Ingeniería, Matemática y Ciencias Físicas</h1>
-                <h2>Registro de datos de visitantes</h2>
+                <h1>Estudiantes de la Comunidad de Ingeniería - UMG</h1>
+                <h2>Registro de datos ECI</h2>
             </div>
         </div>
         <form class="form-body">
             <div class="step only-step"  data-step="1">
                 <div class="step-title">
-                    <h2>Datos del visitante</h2>
+                    <h2>Datos personales</h2>
                     <hr>
                 </div>
                 <div class="step-body">
@@ -62,11 +62,11 @@
                         />
                     </div>
                     <div class="form-field-wrap col-12 col-md-8">
-                        <label for="telf" class="col-12 col-md-4 col-lg-4 text-center text-md-end">Número telefónico (opcional)</label>
+                        <label for="cel" class="col-12 col-md-4 col-lg-4 text-center text-md-end">Número de celular*</label>
                         <input
                             type="tel"
-                            name="telf"
-                            id="telf"
+                            name="cel"
+                            id="cel"
                             class="form-field col-12 col-md-8"
                             placeholder="0123-4567"
                             required
@@ -76,32 +76,45 @@
                 </div>
 
                 <div class="step-title">
+                    <h2>Datos académicos</h2>
                     <hr>
                 </div>
                 <div class="step-body">
                     <div class="form-field-wrap col-12 col-md-8">
-                        <label for="carrera" class="col-12 col-md-4 col-lg-4 text-center text-md-end">Carreras en que esta interesado*</label>
-                        <div class="col-12 col-md-8  d-flex justify-content-center" id="carrera-container">
-                            <select class="form-field" name="carrera" id="carrera" multiple="multiple">
-                                <option value="1">Ingeniería Civil</option>
-                                <option value="2">Ingeniería Industrial</option>
-                                <option value="3">Ingeniería Mecánica</option>
-                                <option value="4">Ingeniería Química</option>
-                                <option value="5">Ingeniería Eléctrica</option>
-                                <option value="6">Ingeniería Electrónica</option>
-                                <option value="7">Ingeniería en Sistemas</option>
-                                <option value="8">Licenciatura en Matemática</option>
-                                <option value="9">Licenciatura en Física</option>
-                                <option value="10">Ingeniería en Alimentos</option>
-                                <option value="11">Ingeniería Biomédica</option>
-                                <option value="12">Ingeniería Ciencia de Datos y Analítica</option>
+                        <label for="campus" class="col-12 col-md-4 col-lg-4 text-center text-md-end">Campus o sede*</label>
+                        <div class="col-12 col-md-8  d-flex justify-content-center" id="campus-container">
+                            <select class="form-field" name="campus" id="campus">
+                                <option value="1">Central</option>
+                                <option value="2">Escuintla</option>
+                                <option value="3">Huehuetenango</option>
+                                <option value="4">Jocotenango</option>
+                                <option value="5">Jutiapa</option>
+                                <option value="6">Mazatenango</option>
+                                <option value="7">Naranjo</option>
+                                <option value="8">Portales</option>
+                                <option value="9">Puerto Barrios</option>
+                                <option value="10">Quetzaltenango</option>
+                                <option value="11">Santa Lucía Cotzumalguapa</option>
+                                <option value="12">Villa Nueva</option>
                             </select>
                         </div>
                     </div>
+
                     <div class="form-field-wrap col-12 col-md-8">
-                        <label for="modalidad" class="col-12 col-md-4 col-lg-4 text-center text-md-end">Modalidad en que esta interesado*</label>
+                        <label for="jornada" class="col-12 col-md-4 col-lg-4 text-center text-md-end">Jornada de estudio*</label>
+                        <div class="col-12 col-md-8  d-flex justify-content-center" id="jornada-container">
+                            <select class="form-field" name="jornada" id="jornada">
+                                <option value="1">Matutina</option>
+                                <option value="2">Vespertina</option>
+                                <option value="3">Mixta</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-field-wrap col-12 col-md-8">
+                        <label for="modalidad" class="col-12 col-md-4 col-lg-4 text-center text-md-end">Modalidad de estudio*</label>
                         <div class="col-12 col-md-8  d-flex justify-content-center" id="modalidad-container">
-                            <select class="form-field" name="modalidad" id="modalidad" multiple="multiple">
+                            <select class="form-field" name="modalidad" id="modalidad">
                                 <option value="1">Híbrida</option>
                                 <option value="2">En línea</option>
                             </select>
@@ -134,7 +147,7 @@
                         <i class="bi-tiktok"></i>
                     </a>
                     <div class="col-12 website-redir">
-                        <a href="https://fin.edu.gt/" class="network-opt" target="_blank">Sitio web oficial</a>
+                        <a href="https://fin.edu.gt/" class="network-opt" target="_blank">Sitio web facultad</a>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 opciones">

@@ -4,8 +4,9 @@
     //verificamos los datos recibidos y formateamos
     $nombre = $_POST['nombre'];
     $mail = $_POST['mail'];
-    $telf = $_POST['telf'];
-    $career = $_POST['career'];
+    $cel = $_POST['cel'];
+    $campus = $_POST['campus'];
+    $jornada = $_POST['jornada'];
     $modalidad = $_POST['modalidad'];
     $fecha = date('Y-m-d h:i:s', time());
     $est = 1;
@@ -23,127 +24,24 @@
         return;//correo no válido
     }
 
-    if($telf != "" && $telf != null && strlen($telf) > 15){
-        echo "El número telefónico ingresado no es válido";
-        return;//telf no válido
+    if($cel == "" || $cel == null || strlen($cel) > 15){
+        echo "El número de celular ingresado no es válido";
+        return;//cel no válido
     }
 
-    //Formateo de carreras y modalidades en el formato 1;1...
-
-    $careerStr = explode(";", $career);
-    $careerJson="";
-    //1 - Ingeniería Civil
-    //2 - Ingeniería Industrial
-    //3 - Ingeniería Mecánica
-    //4 - Ingeniería Química
-    //5 - Ingeniería Eléctrica
-    //6 - Ingeniería Electrónica
-    //7 - Ingeniería en Sistemas
-    //8 - Licenciatura en Matemática
-    //9 - Licenciatura en Física
-    //10- Ingeniería en Alimentos
-    //11- Ingeniería Biomédica
-    //12- Ingeniería Ciencia de Datos y Analítica
-    if(in_array("1", $careerStr)){
-        $careerJson .= "1;";
-    }
-    else{
-        $careerJson.= "0;";
+    if($campus == "" || $campus == null || strlen($campus) > 3){
+        echo "Debe seleccionar un campus";
+        return;
     }
 
-    if(in_array("2", $careerStr)){
-        $careerJson.= "1;";
-    }
-    else{
-        $careerJson.= "0;";
+    if($jornada == "" || $jornada == null || strlen($jornada) > 3){
+        echo "Debe seleccionar una jornada";
+        return;
     }
 
-    if(in_array("3", $careerStr)){
-        $careerJson.= "1;";
-    }
-    else{
-        $careerJson.= "0;";
-    }
-
-    if(in_array("4", $careerStr)){
-        $careerJson.= "1;";
-    }
-    else{
-        $careerJson.= "0;";
-    }
-
-    if(in_array("5", $careerStr)){
-        $careerJson.= "1;";
-    }
-    else{
-        $careerJson.= "0;";
-    }
-
-    if(in_array("6", $careerStr)){
-        $careerJson.= "1;";
-    }
-    else{
-        $careerJson.= "0;";
-    }
-
-    if(in_array("7", $careerStr)){
-        $careerJson.= "1;";
-    }
-    else{
-        $careerJson.= "0;";
-    }
-
-    if(in_array("8", $careerStr)){
-        $careerJson.= "1;";
-    }
-    else{
-        $careerJson.= "0;";
-    }
-
-    if(in_array("9", $careerStr)){
-        $careerJson.= "1;";
-    }
-    else{
-        $careerJson.= "0;";
-    }
-
-    if(in_array("10", $careerStr)){
-        $careerJson.= "1;";
-    }
-    else{
-        $careerJson.= "0;";
-    }
-
-    if(in_array("11", $careerStr)){
-        $careerJson.= "1;";
-    }
-    else{
-        $careerJson.= "0;";
-    }
-
-    if(in_array("12", $careerStr)){
-        $careerJson.= "1;";
-    }
-    else{
-        $careerJson.= "0;";
-    }
-
-    $modalidadStr = explode(";", $modalidad);
-    $modalidadJson="";
-    //1 - Híbrida
-    //2 - En línea
-    if(in_array("1", $modalidadStr)){
-        $modalidadJson .= "1;";
-    }
-    else{
-        $modalidadJson.= "0;";
-    }
-
-    if(in_array("2", $modalidadStr)){
-        $modalidadJson.= "1;";
-    }
-    else{
-        $modalidadJson.= "0;";
+    if($modalidad == "" || $modalidad == null || strlen($modalidad) > 3){
+        echo "Debe seleccionar una modalidad";
+        return;
     }
 
     //Y luego la conexión e insert
@@ -156,20 +54,19 @@
     else{
         $mysqli->set_charset("utf8");
         $estado = 1;
-        $query = $mysqli->prepare("INSERT INTO `tbl_student_data`
-        (`des_nombre`, `des_telf`, `des_email`, 
-        `des_carreras`, `des_modalidad`, `dt_fecha_envio`, 
-        `ind_estado`) 
-        VALUES (
+        $query = $mysqli->prepare("INSERT INTO `tbl_eci_data`
+        (`des_nombre`, `des_cell`, 
+        `des_email`, `des_campus`, `des_jornada`, 
+        `des_modalidad`, `dt_fecha_envio`, `ind_estado`) VALUES (
+            ?,?,
             ?,?,?,
-            ?,?,?,
-            ?
+            ?,?,?
         )");
 
-        $query->bind_param("ssssssi",
-        $nombre,$telf,$mail,
-        $careerJson,$modalidadJson,$fecha,
-        $est);
+        $query->bind_param("sssssssi",
+        $nombre,$cel,
+        $mail,$campus,$jornada,
+        $modalidad,$fecha,$est);
 
         $resultado = $query->execute();
         if(!$resultado){

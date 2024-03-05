@@ -1,7 +1,6 @@
 <?php
-    //$mysqli = new mysqli("localhost","finedugt_catform_helper","ew;?zVr4hgt4","finedugt_catedraticos");
-    //$mysqli = new mysqli("localhost","root","","formularios");
-    $mysqli = new mysqli("localhost","finedugt_form_colegio_user","ToLl}n^G7P#l","finedugt_form_colegio");
+    //$mysqli = new mysqli("localhost","finedugt_form_colegio_user","ToLl}n^G7P#l","finedugt_formeci");
+    $mysqli = new mysqli("localhost","root","","finedugt_formeci");
 
 
     // Check connection
