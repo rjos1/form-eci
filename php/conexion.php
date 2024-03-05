@@ -1,6 +1,6 @@
 <?php
-    //$mysqli = new mysqli("localhost","finedugt_form_colegio_user","ToLl}n^G7P#l","finedugt_formeci");
-    $mysqli = new mysqli("localhost","root","","finedugt_formeci");
+    $mysqli = new mysqli("localhost","finedugt_eci_usr","k-vm{j4q~]n2","finedugt_formEci");
+    //$mysqli = new mysqli("localhost","root","","finedugt_formeci");
 
 
     // Check connection
