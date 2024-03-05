@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <title>Registro de datos - Visitas guiadas in3</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- CSS -->
+    <link rel="shortcut icon" href="img/umg.png" type="image/x-icon">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font_bootstrap-icons.css">
+    <link rel="stylesheet" href="css/select2.css">
+    <link rel="stylesheet" href="css/select2-bootstrap-5-theme.css">
+    <link rel="stylesheet" href="css/sweetalert2.css">
+    <link rel="stylesheet" href="css/style-form.css">
+</head>
+
+<body class="p-3 p-sm-3 p-md-5">
+    <main class="form-container">
+        <div class="form-header">
+            <a href="https://fin.edu.gt" target="_blank" class="form-logo d-none d-sm-flex col-sm-1">
+                <img src="img/umg.png" alt="Logo UMG" class="logo">
+            </a>
+            <div class="form-title col-12 col-sm-11 ps-2">
+                <h1>Facultad de Ingeniería, Matemática y Ciencias Físicas</h1>
+                <h2>Registro de datos de visitantes</h2>
+            </div>
+        </div>
+        <form class="form-body">
+            <div class="step only-step"  data-step="1">
+                <div class="step-title">
+                    <h2>Datos del visitante</h2>
+                    <hr>
+                </div>
+                <div class="step-body">
+                    <div class="form-field-wrap col-12 col-md-8">
+                        <label for="nombre" class="col-12 col-md-4 col-lg-4 text-center text-md-end">Nombre completo*</label>
+                        <input
+                            type="text"
+                            name="nombre"
+                            id="nombre"
+                            class="form-field col-12 col-md-8"
+                            placeholder="Nombres y apellidos"
+                            required
+                            title="Coloque su nombre completo"
+                        />
+                    </div>
+                    <div class="form-field-wrap col-12 col-md-8">
+                        <label for="correo" class="col-12 col-md-4 col-lg-4 text-center text-md-end">Correo electrónico personal*</label>
+                        <input
+                            type="email"
+                            name="correo"
+                            id="correo"
+                            class="form-field col-12 col-md-8"
+                            placeholder="ejemplo@gmail.com"
+                            required
+                            title="Coloque su Email personal"
+                        />
+                    </div>
+                    <div class="form-field-wrap col-12 col-md-8">
+                        <label for="telf" class="col-12 col-md-4 col-lg-4 text-center text-md-end">Número telefónico (opcional)</label>
+                        <input
+                            type="tel"
+                            name="telf"
+                            id="telf"
+                            class="form-field col-12 col-md-8"
+                            placeholder="0123-4567"
+                            required
+                            title="Coloque su # telefónico"
+                        />
+                    </div>
+                </div>
+
+                <div class="step-title">
+                    <hr>
+                </div>
+                <div class="step-body">
+                    <div class="form-field-wrap col-12 col-md-8">
+                        <label for="carrera" class="col-12 col-md-4 col-lg-4 text-center text-md-end">Carreras en que esta interesado*</label>
+                        <div class="col-12 col-md-8  d-flex justify-content-center" id="carrera-container">
+                            <select class="form-field" name="carrera" id="carrera" multiple="multiple">
+                                <option value="1">Ingeniería Civil</option>
+                                <option value="2">Ingeniería Industrial</option>
+                                <option value="3">Ingeniería Mecánica</option>
+                                <option value="4">Ingeniería Química</option>
+                                <option value="5">Ingeniería Eléctrica</option>
+                                <option value="6">Ingeniería Electrónica</option>
+                                <option value="7">Ingeniería en Sistemas</option>
+                                <option value="8">Licenciatura en Matemática</option>
+                                <option value="9">Licenciatura en Física</option>
+                                <option value="10">Ingeniería en Alimentos</option>
+                                <option value="11">Ingeniería Biomédica</option>
+                                <option value="12">Ingeniería Ciencia de Datos y Analítica</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-field-wrap col-12 col-md-8">
+                        <label for="modalidad" class="col-12 col-md-4 col-lg-4 text-center text-md-end">Modalidad en que esta interesado*</label>
+                        <div class="col-12 col-md-8  d-flex justify-content-center" id="modalidad-container">
+                            <select class="form-field" name="modalidad" id="modalidad" multiple="multiple">
+                                <option value="1">Híbrida</option>
+                                <option value="2">En línea</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="step hide success" data-step="2">
+                <div class="form-field-wrap col-12 col-md-8">
+                    <div class="alert alert-success col-12" role="alert" id="end-alert">
+                        <strong>Se han registrado sus datos con éxito. </strong>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="actions">
+                <div class="step-counter col-12 col-md-6 mb-md-none">
+                    <a href="https://www.facebook.com/UMGFacultadIngenieria" target="_blank" class="network-item network-opt">
+                        <i class="bi-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/facultadingenieriaumg" target="_blank" class="network-item network-opt">
+                        <i class="bi-instagram"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@facultadingenieriaumg" target="_blank" class="network-item network-opt">
+                        <i class="bi-youtube"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@facultadingenieriaumg" target="_blank" class="network-item network-opt">
+                        <i class="bi-tiktok"></i>
+                    </a>
+                    <div class="col-12 website-redir">
+                        <a href="https://fin.edu.gt/" class="network-opt" target="_blank">Sitio web oficial</a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 opciones">
+                    <button type="button" class="btn btn-success btn-lg" id="btn-submit">
+                        Enviar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </main>
+    <!-- JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="js/select2.full.js"></script>
+    <script src="js/sweetalert2.js"></script>
+    <script src="js/js-form.js"></script>
+</body>
+</html>
